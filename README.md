@@ -1,44 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Authors Haven (Front end)</h1>
 
-## Available Scripts
+[![CircleCI](https://circleci.com/gh/andela/ah-frontend-odin.svg?style=svg)](https://circleci.com/gh/andela/ah-frontend-odin)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/147607e8007d0668923d/test_coverage)](https://codeclimate.com/github/andela/ah-frontend-odin/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/147607e8007d0668923d/maintainability)](https://codeclimate.com/github/andela/ah-frontend-odin/maintainability)
 
-In the project directory, you can run:
+## About Authors Haven
 
-### `npm start`
+A Social platform for like-minded authors to foster inspiration and innovation by leveraging the modern web to enable authors share original content, target articles to an audience that finds them relevant and more.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This repo contains the front end implementation. **The backend can be found [here](https://github.com/andela/ah-backend-odin)**
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Note** This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ensure that you have the following tools available on your machine;
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- [Git](https://git-scm.com/) A distributed version control system
+- [Nodejs](https://nodejs.org/en/) A JavaScript runtime built on Chrome's V8 JavaScript engine.
+- One of the package managers [Yarn](https://yarnpkg.com/en/) or [Npm](https://www.npmjs.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installing
 
-### `npm run eject`
+While in your preferred terminal;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Start by cloning the repository to your local machine
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+git clone https://github.com/andela/ah-frontend-odin
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+cd ah-frontend-odin/
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Install the package dependencies by running
 
-## Learn More
+```bash
+npm install  # for npm users
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+yarn  # for yarn users
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+
+## Serving the application
+
+```bash
+  yarn start # For a local development server
+  yarn build # For a production build
+```
+
+## Running the tests
+
+```bash
+yarn test
+
+yarn run test:coverage # test with coverage
+
+```
+
+## Linting files
+
+This project uses [eslint](https://eslint.org/), a static analysis javascript tool frequently used to find problematic patterns or code that doesn’t adhere to certain style guidelines.
+
+You can lint your files by running the command below
+
+```bash
+yarn lint
+```
+
+## Authors
+
+See also the list of [contributors](https://github.com/andela/ah-frontend-odin/graphs/contributors) who participated in this project.
