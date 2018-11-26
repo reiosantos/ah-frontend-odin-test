@@ -3,32 +3,35 @@ module.exports = {
     browser: true,
     jest: true,
     es6: true,
-    node: true
+    node: true,
   },
-  extends: ['airbnb', 'prettier'],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
-        trailingComma: 'es5'
-      }
+        trailingComma: 'all',
+        tabWidth: 2,
+        useTabs: false,
+        printWidth: 100,
+      },
     ],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    'react/prefer-stateless-function': [1, { ignorePureComponents: true }]
+    'react/prefer-stateless-function': [1, { ignorePureComponents: true }],
   },
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx'],
-        paths: ['src', 'node_modules']
-      }
-    }
-  }
+        paths: ['src', 'node_modules'],
+      },
+    },
+  },
 };
