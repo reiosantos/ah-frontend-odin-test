@@ -11,5 +11,5 @@ it('renders without crashing', () => {
 
 it('shows hello world', () => {
   const wrapper = shallow(<App />);
-  expect(wrapper.find('header').text()).toEqual('Hello world');
+  expect(wrapper.find('header').text()).toEqual('Odin devs');
 });
