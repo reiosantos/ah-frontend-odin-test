@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from 'logo.png';
+import PropTypes from 'prop-types';
 
-const NavBar = () => (
+const NavBar = ({ showSignUpModal }) => (
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
     <NavLink className="navbar-brand d-flex align-items-center" to="/">
       <img src={Logo} alt="Author Havens Logo" />
@@ -24,14 +25,22 @@ const NavBar = () => (
             Login
           </NavLink>
         </li>
-        <li>
-          <NavLink className="nav-link  text-white" to="/register">
-            SignUp
-          </NavLink>
+        <li className="nav-item active">
+          <button
+            className="nav-link text-light btn signBtn"
+            onClick={showSignUpModal}
+            type="submit"
+          >
+            Register
+          </button>
         </li>
       </ul>
     </div>
   </nav>
 );
+
+NavBar.propTypes = {
+  showSignUpModal: PropTypes.func.isRequired,
+};
 
 export default NavBar;

@@ -2,3 +2,5 @@ export default {
   SET_ARTICLES: 'SET_ALL_ARTICLES',
   ADD_ARTICLE: 'ADD_ARTICLE',
 };
+export const SIGNUP = 'SIGNUP';
+export const SHOW_SIGNUP_MODAL = 'SHOW_SIGNUP_MODAL';
