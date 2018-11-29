@@ -1,0 +1,11 @@
+.indexPage {
+  .join-button {
+    border: 2px solid $accent;
+    color: $accent;
+    border-radius: 1rem;
+    padding: 0.7rem 2rem;
+
+    font: $headings-font-family 1.25rem 900;
+    font-size: 1.25rem;
+  }
+}

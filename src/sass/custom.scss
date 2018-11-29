@@ -1,0 +1,12 @@
+.navbar {
+  border-top: 5px solid $accent;
+  .navbar-brand {
+    img {
+      height: 50px;
+    }
+  }
+}
+
+.card {
+  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.302), 0 1px 1px 1px rgba(60, 64, 67, 0.149);
+}
