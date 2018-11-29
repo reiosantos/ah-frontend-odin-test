@@ -5,6 +5,7 @@ import Notifications from 'react-notify-toast';
 import store from 'store';
 import IndexPage from './IndexPage';
 import AuthenticationModals from './authentication/AuthenticationModals';
+import SocialButtons from '../components/authentication/SocialButtons';
 
 const App = () => (
   <Provider store={store}>
@@ -13,6 +14,7 @@ const App = () => (
         <Notifications />
         <AuthenticationModals />
         <Route path="/" exact component={IndexPage} />
+        <Route path="/social" exact component={SocialButtons} />
       </div>
     </BrowserRouter>
   </Provider>
