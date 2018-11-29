@@ -1,9 +1,5 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  padding: 0;
-}
+@import 'variables';
+@import 'bootstrap_overides';
+@import 'bootstrap';
+@import 'custom';
+@import 'pages';

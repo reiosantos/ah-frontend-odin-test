@@ -21,6 +21,9 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prefer-stateless-function': [1, { ignorePureComponents: true }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'import/prefer-default-export': ['off'],
+    'react/forbid-prop-types': [false],
+    'react/destructuring-assignment': ['off'],
   },
   parserOptions: {
     ecmaFeatures: {
