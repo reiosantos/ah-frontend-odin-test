@@ -1,8 +1,13 @@
+import $ from 'jquery';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/modal';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'containers/App';
 import * as serviceWorker from './serviceWorker';
 import 'sass/app.scss';
+
+window.$ = $;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
