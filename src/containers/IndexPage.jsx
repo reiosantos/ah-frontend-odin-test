@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import DefaultLayout from 'containers/layout/DefaultLayout';
 import { getAllArticles } from 'store/actions/articles';
-import JoinPlatiformSection from 'components/sections/JoinPlatiformSection';
 import LatestArticlesSection from 'components/sections/LatestArticlesSection';
-import { showSignUp } from '../store/actions/actionCreators';
+import JoinAuthorsHaven from './layout/JoinPlatiformSection';
 
 class IndexPage extends React.Component {
   componentWillMount() {
@@ -13,11 +12,10 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const { showSignUpModal } = this.props;
     return (
       <DefaultLayout className="indexPage">
         <LatestArticlesSection articles={this.props.articles} />
-        <JoinPlatiformSection showSignUpModal={showSignUpModal} />
+        <JoinAuthorsHaven />
       </DefaultLayout>
     );
   }
@@ -26,13 +24,11 @@ class IndexPage extends React.Component {
 IndexPage.propTypes = {
   articles: PropTypes.array.isRequired,
   fetchAllArticles: PropTypes.func.isRequired,
-  showSignUpModal: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = ({ articles }) => ({ articles: articles.all });
 export const mapActionsToProps = dispatch => ({
   fetchAllArticles: () => dispatch(getAllArticles()),
-  showSignUpModal: () => dispatch(showSignUp(true)),
 });
 
 export default connect(

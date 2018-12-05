@@ -4,14 +4,14 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
 import store from 'store';
 import IndexPage from './IndexPage';
-import SignUpModal from './authentication/SignUpModal';
+import AuthenticationModals from './authentication/AuthenticationModals';
 
 const App = () => (
   <Provider store={store}>
     <BrowserRouter>
       <div className="App">
         <Notifications />
-        <SignUpModal />
+        <AuthenticationModals />
         <Route path="/" exact component={IndexPage} />
       </div>
     </BrowserRouter>
