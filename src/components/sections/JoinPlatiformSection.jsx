@@ -1,7 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const JoinPlatiformSection = () => (
+const JoinPlatiformSection = ({ showSignUpModal }) => (
   <section className="p-3 bg-primary text-white">
     <div className="container-fluid">
       <h3>Join Authors Haven</h3>
@@ -11,12 +11,20 @@ const JoinPlatiformSection = () => (
         finds them relevant and more.
       </p>
       <div className="d-flex justify-content-end">
-        <NavLink className="btn join-button" to="/register">
-          Sign Up
-        </NavLink>
+        <button
+          className="btn join-button nav-link text-light signBtn"
+          onClick={showSignUpModal}
+          type="submit"
+        >
+          SignUp
+        </button>
       </div>
     </div>
   </section>
 );
+
+JoinPlatiformSection.propTypes = {
+  showSignUpModal: PropTypes.func.isRequired,
+};
 
 export default JoinPlatiformSection;
