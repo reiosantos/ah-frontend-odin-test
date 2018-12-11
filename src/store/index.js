@@ -3,7 +3,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import Http from 'utils/Http';
 import { API_URL } from 'utils/constants';
-
+import { activateLoading, deactivateLoading } from './actions/ui';
 import rootReducer from './reducers';
 
 const http = new Http(API_URL);
@@ -16,5 +16,9 @@ if (shouldLog) {
 }
 
 const store = createStore(rootReducer, applyMiddleware(...middleware));
+
+// hook into the http (fetch process) and (de)activate a loader
+http.onStart(() => store.dispatch(activateLoading()));
+http.onFinished(() => store.dispatch(deactivateLoading()));
 
 export default store;

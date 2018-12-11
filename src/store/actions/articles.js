@@ -1,4 +1,4 @@
-import types from './types';
+import types from 'store/types/articles';
 
 export const addArticle = article => ({ type: types.ADD_ARTICLE, article });
 

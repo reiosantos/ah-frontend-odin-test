@@ -1,4 +1,4 @@
-import types from 'store/actions/types';
+import types from 'store/types/articles';
 
 const initialState = { all: [] };
 
