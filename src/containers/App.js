@@ -10,6 +10,8 @@ import CreateArticlePage from './pages/CreateArticlePage';
 import ShowArticle from './pages/ShowArticle';
 import UnAuthotized from './pages/UnAuthorized';
 import PageNotFound from './pages/PageNotFound';
+import SocialButtons from '../components/authentication/SocialButtons';
+import ProfilesContainer from './profiles/profilesContainer';
 
 const App = () => (
   <Provider store={store}>
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/articles/create" exact component={CreateArticlePage} />
           <Route path="/articles/:slug" exact component={ShowArticle} />
           <Route path="/unauthorized" exact component={UnAuthotized} />
+          <Route path="/profile/:username" exact component={ProfilesContainer} />
+          <Route path="/social" exact component={SocialButtons} />
           <Route component={PageNotFound} />
         </Switch>
       </div>

@@ -16,7 +16,7 @@ const ArticleFooter = ({ article }) => {
       <div className="ml-3 d-flex flex-wrap justify-content-between flex-grow-1">
         <h6>
           By{' '}
-          <NavLink className="text-capitalize" to={`/users/${author.username}`}>
+          <NavLink className="text-capitalize" to={`profile/${author.username}`}>
             <strong>{author.username}</strong>
           </NavLink>
         </h6>
