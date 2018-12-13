@@ -3,23 +3,36 @@ import PropTypes from 'prop-types';
 import Form from 'forms/index';
 import { NavLink } from 'react-router-dom';
 import Input from 'forms/Input';
+import SocialButtons from './SocialButtons';
 
-const LoginForm = ({ successSubmit }) => (
+const LoginForm = ({ successSubmit, handleAuthentication }) => (
   <Form
     name="login-form"
     button={{ className: 'btn-primary btn-block', text: 'Login' }}
     action="/users/login/"
     beforeSubmit={data => ({ user: data })}
     successSubmit={successSubmit}
+    slot={
+      <div>
+        <hr />
+        <NavLink to="/request_reset">Forgot Password?</NavLink>
+        <div className="text-center">
+          <p>Or signup with</p>
+          <div className="offset-5">
+            <SocialButtons handleAuthentication={handleAuthentication} />
+          </div>
+        </div>
+      </div>
+    }
   >
     <Input name="email" type="email" label="Email" />
     <Input name="password" type="password" label="Password" />
-    <NavLink to="/request_reset">Forgot Password?</NavLink>
   </Form>
 );
 
 LoginForm.propTypes = {
   successSubmit: PropTypes.func.isRequired,
+  handleAuthentication: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

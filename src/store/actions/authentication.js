@@ -26,3 +26,9 @@ export const signUp = user => (dispatch, getState, http) =>
       errorMessage(errors.email ? errors.email[0] : errors.username[0]);
       dispatch({ type: 'SIGNUP-ERRORS', errors });
     });
+
+export const socialAuthentication = (url, accessToken) => (dispatch, getState, http) =>
+  http.post(url, { user: { access_token: accessToken } }).then(data => {
+    dispatch(loginUser(data));
+    dispatch(hideAuthModal('login'));
+  });

@@ -1,4 +1,5 @@
 export default {
   SET_ARTICLES: 'SET_ALL_ARTICLES',
   ADD_ARTICLE: 'ADD_ARTICLE',
+  LOGIN_USER: 'LOGIN_USER',
 };

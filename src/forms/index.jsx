@@ -218,13 +218,14 @@ class FormComponent extends React.Component {
    * @return {Element}
    */
   render() {
-    const { method, action } = this.props;
+    const { method, action, slot } = this.props;
 
     return (
       <form method={method} action={action} onSubmit={this.submit}>
         {this.renderGenericErrors()}
         {this.renderFormChildren()}
         {this.renderButton()}
+        {slot}
       </form>
     );
   }
@@ -239,6 +240,7 @@ FormComponent.defaultProps = {
   beforeSubmit: data => data,
   onError: null,
   nonInputErrorFields: ['error'],
+  slot: null,
 };
 
 FormComponent.propTypes = {
@@ -263,6 +265,7 @@ FormComponent.propTypes = {
   beforeSubmit: PropTypes.func,
   resetFormData: PropTypes.func.isRequired,
   nonInputErrorFields: PropTypes.array,
+  slot: PropTypes.any,
 };
 
 export const mapActionsToProps = dispatch => ({

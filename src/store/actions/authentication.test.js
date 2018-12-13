@@ -1,5 +1,10 @@
 import types from 'store/types/authentication';
-import { showAuthModal, hideAuthModal, loginUser } from 'store/actions/authentication';
+import {
+  showAuthModal,
+  hideAuthModal,
+  loginUser,
+  socialAuthentication,
+} from 'store/actions/authentication';
 import mockStore from 'tests/mockStore';
 
 describe('Authentication actions', () => {
@@ -19,5 +24,22 @@ describe('Authentication actions', () => {
     store.dispatch(loginUser(user));
 
     expect(store.getActions()).toEqual([{ type: types.LOGIN_USER, user }]);
+  });
+
+  test('authenticate user', () => {
+    const data = { user: {} };
+    fetch.post('https://authors-haven-odin.herokuapp.com/api/google/', data);
+
+    const expectedActions = [
+      { type: 'LOGIN_USER', user: { user: {} } },
+      { name: 'login', type: 'HIDE_AUTH_MODAL' },
+    ];
+    const store = mockStore({});
+    const url = 'google/';
+    const accessToken = 'saffsw3422555';
+
+    return store.dispatch(socialAuthentication(url, { accessToken })).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });

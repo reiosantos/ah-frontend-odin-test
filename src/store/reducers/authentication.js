@@ -14,7 +14,7 @@ const updateModal = (state, name, value) => ({
   },
 });
 
-const signUpReducer = (state = initialstate, action) => {
+export default (state = initialstate, action) => {
   switch (action.type) {
     case types.SHOW_MODAL:
       return updateModal(state, action.name, true);
@@ -22,10 +22,7 @@ const signUpReducer = (state = initialstate, action) => {
       return updateModal(state, action.name, false);
     case types.LOGIN_USER:
       return { ...state, user: action.user };
-
     default:
       return state;
   }
 };
-
-export default signUpReducer;

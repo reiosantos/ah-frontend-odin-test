@@ -13,6 +13,7 @@ describe('Article action tests', () => {
 
   test('it gets all articles', () => {
     const store = mockStore({ articles: { all: [] } });
+    fetch.get('https://authors-haven-odin.herokuapp.com/api/articles', 200);
     const expectedActions = [{ type: types.SET_ARTICLES }];
 
     store.dispatch(getAllArticles()).then(() => {
