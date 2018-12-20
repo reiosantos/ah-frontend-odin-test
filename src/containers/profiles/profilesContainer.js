@@ -8,13 +8,29 @@ import { mapStateToProps } from 'store/helpers';
 import * as PropTypes from 'prop-types';
 import DefaultLayout from 'containers/layout/DefaultLayout';
 import { updateProfile } from '../../store/actions/profiles/profileActions';
-import { addFollow } from '../../store/actions/follow';
+import { addFollow, fetchFollowers } from '../../store/actions/follow';
 
 class ProfilesContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { isEditing: false, bio: '', image: '' };
+    this.state = {
+      isEditing: false,
+      bio: '',
+      image: '',
+      isFollowing: false,
+      followers: [],
+      following: [],
+    };
     this.profileFetch();
+  }
+
+  componentWillMount() {
+    this.audience(this.props);
+    this.props.fetchFollowers();
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    this.audience(nextProps);
   }
 
   onChange = e => {
@@ -67,14 +83,29 @@ class ProfilesContainer extends Component {
   handleFollow = () => {
     const { followUser } = this.props;
     const { match } = this.props;
+    const { isFollowing } = this.state;
     const { username } = match.params;
-    followUser(username);
+    followUser(username, isFollowing);
   };
+
+  audience(props) {
+    const { followersAndFollowing, match } = props;
+    const { follower, following } = followersAndFollowing;
+
+    const isFollowingUser = following.filter(
+      userIFollow => match.params.username === userIFollow.username,
+    );
+
+    const isFollowing = isFollowingUser.length > 0;
+
+    this.setState({ isFollowing, followers: follower, following });
+  }
 
   render() {
     const { match, user } = this.props;
-    const { isEditing } = this.state;
+    const { isEditing, isFollowing } = this.state;
     const { profiles } = this.props;
+
     return (
       <DefaultLayout>
         <UserProfile
@@ -91,7 +122,7 @@ class ProfilesContainer extends Component {
           profileUpdate={this.profileUpdate}
           handleUpload={this.handleUpload}
         />
-        <Follow onClick={this.handleFollow} />
+        <Follow onClick={this.handleFollow} isFollowing={isFollowing} />
       </DefaultLayout>
     );
   }
@@ -104,16 +135,22 @@ ProfilesContainer.propTypes = {
   fetchUserProfile: PropTypes.any.isRequired,
   profiles: PropTypes.any.isRequired,
   followUser: PropTypes.any.isRequired,
+  fetchFollowers: PropTypes.func.isRequired,
 };
 const mapActionsToProps = dispatch => ({
   fetchUserProfile: username => dispatch(fetchProfile(username)),
   updateHandler: (profile, username) => dispatch(updateProfile(profile, username)),
-  followUser: username => dispatch(addFollow(username)),
+  followUser: (username, isFollowing) => dispatch(addFollow(username, isFollowing)),
+  fetchFollowers: () => dispatch(fetchFollowers()),
 });
 
 export default withRouter(
   connect(
-    mapStateToProps({ user: 'authentication.user', profiles: 'profiles' }),
+    mapStateToProps({
+      user: 'authentication.user',
+      profiles: 'profiles',
+      followersAndFollowing: 'addFollow.followersAndFollowing',
+    }),
     mapActionsToProps,
   )(ProfilesContainer),
 );

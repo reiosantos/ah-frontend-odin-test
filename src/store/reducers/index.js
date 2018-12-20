@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import addFollow from './follow';
 import ui from './ui';
 import articles from './article';
 import authentication from './authentication';
@@ -10,5 +11,6 @@ export default combineReducers({
   articles,
   authentication,
   forms,
+  addFollow,
   profiles,
 });
